@@ -33,7 +33,7 @@ class LeadController extends Controller
     public function filter(Request $request)
     {
         $request = $request->all();
-        $leads = Lead::where('updated_at', $request['updated_at'])
+        $leads = Lead::where('updated_at', '>=', $request['updated_at'])
             ->get();
 
         return $leads;
